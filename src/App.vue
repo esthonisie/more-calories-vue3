@@ -6,7 +6,7 @@
     { product: "Pompoenpitten", kcal_per_100: 605, weight_g_ml: 10 },
     { product: "Notenmix", kcal_per_100: 668, weight_g_ml: 15 },
     { product: "Gepofte spelt", kcal_per_100: 364, weight_g_ml: 5 },
-    { product: "Jordans Granola", kcal_per_100: 446, weight_g_ml: 25 },
+    { product: "Jordans granola", kcal_per_100: 446, weight_g_ml: 25 },
   ]);
 
   const calcTotal = computed(
@@ -17,47 +17,67 @@
 </script>
 
 <template>
-  <div class="mainContainer">
-    <table>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Kcal per 100 g/ml</th>
-          <th>Weight in g/ml</th>
-          <th>Kcal subtotal</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="calorie in calories">
-          <td>{{ calorie.product }}</td>
-          <td>{{ calorie.kcal_per_100 }}</td>
-          <td>{{ calorie.weight_g_ml }}</td>
-          <td>
-            {{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }}
-          </td>
-        </tr>
-        <tr>
-          <th colspan="3">Kcal total</th>
-          <td>{{ Math.round(calcTotal) }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="main-container">
+    <div class="calories-main-container">
+      <template v-for="calorie in calories">
+        <div class="calories-product-container">
+          <p>{{ calorie.product }}</p>
+          <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
+        </div>
+        <div class="calories-info-container">
+          <p>weight in g/ml: {{ calorie.weight_g_ml }}</p>
+          <p>calories per 100 g/ml: {{ calorie.kcal_per_100 }}</p>
+        </div>
+      </template>
+    </div>
+    <div class="total-calories-main-container">
+      <div class="total-calories-text-container">
+        <p>Total of Calories:</p>
+        <p>{{ Math.round(calcTotal) }} kcal</p>
+      </div>  
+    </div>
   </div>
 </template>
 
 <style scoped>
-  .mainContainer {
-    width: 768px;
-    height: 481px;
+  .main-container {
+    min-width: 360px;
+    max-width: 360px;
     margin: 40px auto;
+    border: 1px solid #58c3ca;
+    border-radius: 8px;
   }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
+  .calories-main-container {
+    padding: 5px 0 8px;
   }
 
-  th {
-    text-align: left;
+  .calories-product-container,
+  .total-calories-text-container {
+    color: #fff7e9;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .calories-product-container {
+    background-color: #303030;
+    padding: 0 10px;
+    margin-top: 4px;
+  }
+
+  .calories-info-container {
+    color: #a09c95;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 0 10px;
+  }
+
+  .total-calories-main-container {
+    border-top: 1px solid #58c3ca;
+  }
+
+  .total-calories-text-container {
+    font-weight: 700;
+    padding: 5px 10px 8px;
   }
 </style>
