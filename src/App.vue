@@ -25,7 +25,9 @@
           <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
         </div>
         <div class="calories-info-container">
-          <p>weight in g/ml: {{ calorie.weight_g_ml }}</p>
+          <p>weight in g/ml: 
+            <input type="number" v-model="calorie.weight_g_ml">
+          </p>
           <p>calories per 100 g/ml: {{ calorie.kcal_per_100 }}</p>
         </div>
       </template>
@@ -79,5 +81,12 @@
   .total-calories-text-container {
     font-weight: 700;
     padding: 5px 10px 8px;
+  }
+
+  input {
+    max-width: 75px;
+    color: #fff7e9;
+    background-color: transparent;
+    border: 1px solid #fff7e9;
   }
 </style>
