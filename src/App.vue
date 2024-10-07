@@ -1,16 +1,35 @@
-<script setup>
-  import { ref } from 'vue'
-  import CaloriesList from './components/CaloriesList.vue'
-
-  const calories = ref([
-    { product: "Rozijnen", kcal_per_100: 324, weight_g_ml: 5 },
-    { product: "Pompoenpitten", kcal_per_100: 605, weight_g_ml: 10 },
-    { product: "Notenmix", kcal_per_100: 668, weight_g_ml: 15 },
-    { product: "Gepofte spelt", kcal_per_100: 364, weight_g_ml: 5 },
-    { product: "Jordans granola", kcal_per_100: 446, weight_g_ml: 25 },
-  ]);
-</script>
-
 <template>
-  <CaloriesList v-model="calories" />
+  <div class="main-container">
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/create" class="link-to-create">&#43;</RouterLink>
+      <!-- <RouterLink to="/edit">Edit Product</RouterLink> -->
+    </nav>
+    <RouterView /> 
+  </div>
 </template>
+
+<style scoped>
+  .main-container {
+    min-width: 360px;
+    max-width: 360px;
+    margin: 40px auto;
+    border: 1px solid #58c3ca;
+    border-radius: 8px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px 0 10px;
+  }
+
+  a {
+    color: #58c3ca;
+    text-transform: uppercase;
+  }
+
+  .link-to-create {
+    font-weight: 900;
+  }
+</style>

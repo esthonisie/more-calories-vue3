@@ -11,39 +11,29 @@
 </script>
 
 <template>
-  <div class="main-container">
-    <div class="calories-main-container">
-      <template v-for="calorie in calories">
-        <div class="calories-product-container">
-          <p>{{ calorie.product }}</p>
-          <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
-        </div>
-        <div class="calories-info-container">
-          <p>weight in g/ml: 
-            <input type="number" v-model="calorie.weight_g_ml">
-          </p>
-          <p>calories per 100 g/ml: {{ calorie.kcal_per_100 }}</p>
-        </div>
-      </template>
-    </div>
-    <div class="total-calories-main-container">
-      <div class="total-calories-text-container">
-        <p>Total of Calories:</p>
-        <p>{{ Math.round(calcTotal) }} kcal</p>
-      </div>  
-    </div>
+  <div class="calories-main-container">
+    <template v-for="calorie in calories">
+      <div class="calories-product-container">
+        <p>{{ calorie.product }}</p>
+        <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
+      </div>
+      <div class="calories-info-container">
+        <p>weight in g/ml: 
+          <input type="number" v-model="calorie.weight_g_ml">
+        </p>
+        <p>calories per 100 g/ml: {{ calorie.kcal_per_100 }}</p>
+      </div>
+    </template>
+  </div>
+  <div class="total-calories-main-container">
+    <div class="total-calories-text-container">
+      <p>Total of Calories:</p>
+      <p>{{ Math.round(calcTotal) }} kcal</p>
+    </div>  
   </div>
 </template>
 
 <style scoped>
-  .main-container {
-    min-width: 360px;
-    max-width: 360px;
-    margin: 40px auto;
-    border: 1px solid #58c3ca;
-    border-radius: 8px;
-  }
-
   .calories-main-container {
     padding: 5px 0 8px;
   }
