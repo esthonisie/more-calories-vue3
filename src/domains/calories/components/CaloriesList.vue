@@ -1,18 +1,18 @@
 <script setup>
-  import { computed } from 'vue'
+import { computed } from 'vue'
 
-  const calories = defineModel()
-  
-  const calcTotal = computed(
-    () => calories.value.reduce(
-      (acc, item) => acc + ((item.kcal_per_100 / 100) * item.weight_g_ml), 0 
-    ) 
-  );
+const showCalories = defineModel();
+
+const calcTotal = computed(
+  () => showCalories.value.reduce(
+    (acc, item) => acc + ((item.kcal_per_100 / 100) * item.weight_g_ml), 0 
+  ) 
+);
 </script>
 
 <template>
   <div class="calories-main-container">
-    <template v-for="calorie in calories">
+    <template v-for="calorie in showCalories">
       <div class="calories-product-container">
         <p>{{ calorie.product }}</p>
         <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
