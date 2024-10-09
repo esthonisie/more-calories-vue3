@@ -1,7 +1,7 @@
 <script setup>
   import { computed } from 'vue'
 
-  const calories = defineModel()
+  const calories = defineModel();
   
   const calcTotal = computed(
     () => calories.value.reduce(
