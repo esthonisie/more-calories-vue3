@@ -12,7 +12,7 @@ const calcTotal = computed(
 
 <template>
   <div class="calories-main-container">
-    <template v-for="calorie in showCalories">
+    <template v-for="calorie in showCalories" :key="calorie.id">
       <div class="calories-product-container">
         <p>{{ calorie.product }}</p>
         <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
