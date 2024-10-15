@@ -3,7 +3,6 @@
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/create" class="link-to-create">&#43;</RouterLink>
-      <!-- <RouterLink to="/edit">Edit Product</RouterLink> -->
     </nav>
     <RouterView /> 
   </div>

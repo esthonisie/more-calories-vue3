@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import CalorieForm from '../components/CalorieForm.vue'
-import { addCalorie } from '../store';
+import { addCalorie } from '../store'
 import { newId } from '../id-generator.js'
 
 const id = newId();
@@ -16,7 +16,8 @@ const newCalorie = ref(
 );
 
 const submitForm = () => {
-  addCalorie(newCalorie.value);
+  const submitCalorie = Object.assign({}, newCalorie.value);
+  addCalorie(submitCalorie);
 };
 </script>
 

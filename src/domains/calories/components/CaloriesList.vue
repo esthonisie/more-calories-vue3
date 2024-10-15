@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const showCalories = defineModel();
 
@@ -14,7 +15,11 @@ const calcTotal = computed(
   <div class="calories-main-container">
     <template v-for="calorie in showCalories" :key="calorie.id">
       <div class="calories-product-container">
-        <p>{{ calorie.product }}</p>
+        <div class="calories-name-edit-container">
+          <p>{{ calorie.product }}</p>
+          <RouterLink :to="`/edit/${calorie.id}`" class="calorie-edit-link">edit</RouterLink>
+          <p class="calorie-delete-link">x</p>
+        </div>
         <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
       </div>
       <div class="calories-info-container">
@@ -37,10 +42,22 @@ const calcTotal = computed(
   }
 
   .calories-product-container,
+  .calories-name-edit-container,
   .total-calories-text-container {
     color: #fff7e9;
     display: flex;
     justify-content: space-between;
+  }
+
+  .calorie-edit-link {
+    color: #58c3ca;
+    margin: 0 10px;
+  }
+
+  .calorie-delete-link {
+    color: #d41717;
+    font-weight: 900;
+    margin-right: 10px;
   }
 
   .calories-product-container {
