@@ -21,5 +21,5 @@ export const getIndexOfCalorie = (id) => computed(
 // actions
 export const addCalorie = (calorie) => calories.value.push(calorie);
 export const updateCalorie = (index, calorieUpdated) => calories.value[index] = calorieUpdated;
-
+export const deleteCalorie = (index) => calories.value.splice(index, 1);
       
