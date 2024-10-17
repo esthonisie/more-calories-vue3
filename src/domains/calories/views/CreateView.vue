@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import CalorieForm from '../components/CalorieForm.vue'
 import { addCalorie } from '../store'
 import { newId } from '../id-generator.js'
+
+const router = useRouter();
 
 const id = newId();
 
@@ -18,6 +21,7 @@ const newCalorie = ref(
 const submitForm = () => {
   const submitCalorie = Object.assign({}, newCalorie.value);
   addCalorie(submitCalorie);
+  router.push({ name: 'home' });
 };
 </script>
 

@@ -1,11 +1,13 @@
 <script setup>
 import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { getCalorieById } from '../store'
 import { getIndexOfCalorie } from '../store'
 import { updateCalorie } from '../store'
 import CalorieForm from '../components/CalorieForm.vue'
 
 const route = useRoute();
+const router = useRouter();
 
 const id = parseInt(route.params.id);
 
@@ -16,6 +18,7 @@ const calorie = Object.assign({}, getCalorieData.value);
 const submitForm = () => {
   const index = getIndexOfCalorie(id);
   updateCalorie(index.value, calorie);
+  router.push({ name: 'home' });
 };
 </script>
 
