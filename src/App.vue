@@ -1,9 +1,11 @@
+<script setup>
+import { RouterView } from 'vue-router'
+import Navigation from './domains/calories/components/Navigation.vue';
+</script>
+
 <template>
   <div class="main-container">
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/create" class="link-to-create">&#43;</RouterLink>
-    </nav>
+    <Navigation />
     <RouterView /> 
   </div>
 </template>
@@ -15,20 +17,5 @@
     margin: 40px auto;
     border: 1px solid #58c3ca;
     border-radius: 8px;
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 10px 0 10px;
-  }
-
-  a {
-    color: #58c3ca;
-    text-transform: uppercase;
-  }
-
-  .link-to-create {
-    font-weight: 900;
   }
 </style>

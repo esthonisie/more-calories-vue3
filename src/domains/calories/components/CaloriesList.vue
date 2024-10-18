@@ -62,7 +62,7 @@ const calcTotal = computed(
   }
 
   .calorie-delete-link {
-    color: #d41717;
+    color: #fe6a57;
     font-weight: 900;
     margin-right: 10px;
     cursor: pointer;
