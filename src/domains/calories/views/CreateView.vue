@@ -23,8 +23,14 @@ const submitForm = () => {
   addCalorie(submitCalorie);
   router.push({ name: 'home' });
 };
+
+const btnText = ref("add");
 </script>
 
 <template>
-  <CalorieForm v-model:data="newCalorie" @submit="submitForm()" />
+  <CalorieForm 
+    v-model:data="newCalorie" 
+    v-model:btnText="btnText" 
+    @submit="submitForm()" 
+  />
 </template>

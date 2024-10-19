@@ -26,6 +26,7 @@ import { RouterLink } from 'vue-router'
   a {
     color: #58c3ca;
     text-transform: uppercase;
+    border-bottom: 1px solid transparent;
   }
 
   .link-to-create {

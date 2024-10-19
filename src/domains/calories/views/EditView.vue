@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useRouter } from 'vue-router'
 import { getCalorieById } from '../store'
@@ -20,8 +21,14 @@ const submitForm = () => {
   updateCalorie(index.value, calorie);
   router.push({ name: 'home' });
 };
+
+const btnText = ref("edit");
 </script>
 
 <template>
-  <CalorieForm v-model:data="calorie" @submit="submitForm()" />
+  <CalorieForm 
+    v-model:data="calorie" 
+    v-model:btnText="btnText" 
+    @submit="submitForm()" 
+  />
 </template>

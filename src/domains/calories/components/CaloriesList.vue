@@ -70,7 +70,7 @@ const calcTotal = computed(
 
   .calories-product-container {
     background-color: #303030;
-    padding: 0 10px;
+    padding: 0 10px 2px;
     margin-top: 4px;
   }
 
@@ -82,18 +82,11 @@ const calcTotal = computed(
   }
 
   .total-calories-main-container {
-    border-top: 1px solid #58c3ca;
+    border-top: 4px dashed #404040;
   }
 
   .total-calories-text-container {
     font-weight: 700;
-    padding: 5px 10px 8px;
-  }
-
-  input {
-    max-width: 75px;
-    color: #fff7e9;
-    background-color: transparent;
-    border: 1px solid #fff7e9;
+    padding: 5px 10px 14px;
   }
 </style>
