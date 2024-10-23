@@ -28,7 +28,7 @@ const btnText = ref("edit");
 <template>
   <CalorieForm 
     v-model:data="calorie" 
-    v-model:btnText="btnText" 
     @submit="submitForm()" 
-  />
+  >{{ btnText }}
+  </CalorieForm>
 </template>

@@ -1,6 +1,5 @@
 <script setup>
 const calorieData = defineModel('data');
-const btnText = defineModel('btnText');
 </script>
 
 <template>
@@ -33,7 +32,7 @@ const btnText = defineModel('btnText');
       v-model.number="calorieData.kcal_per_100"
     ><br />
     <div class="btnContainer">
-      <button type="submit">{{ btnText }}</button>
+      <button type="submit"><slot>submit</slot></button>
     </div>
   </form>
 </template>

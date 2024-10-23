@@ -30,7 +30,7 @@ const btnText = ref("add");
 <template>
   <CalorieForm 
     v-model:data="newCalorie" 
-    v-model:btnText="btnText" 
     @submit="submitForm()" 
-  />
+  >{{ btnText }}
+  </CalorieForm>
 </template>
