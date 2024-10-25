@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { deleteCalorie } from '../store'
+import { getExtraInfo } from '@/helper/toggle-info'
 
 const showCalories = defineModel();
 
@@ -10,6 +11,8 @@ const calcTotal = computed(
     (acc, item) => acc + ((item.kcal_per_100 / 100) * item.weight_g_ml), 0 
   ) 
 );
+
+const showExtraInfo = getExtraInfo;
 </script>
 
 <template>
@@ -29,7 +32,7 @@ const calcTotal = computed(
         </div>
         <p>{{ Math.round((calorie.kcal_per_100 / 100) * calorie.weight_g_ml) }} kcal</p>
       </div>
-      <div class="calories-info-container">
+      <div v-if="showExtraInfo" class="calories-info-container">
         <p>weight in g/ml: {{ calorie.weight_g_ml }}</p>
         <p>calories per 100 g/ml: {{ calorie.kcal_per_100 }}</p>
       </div>
