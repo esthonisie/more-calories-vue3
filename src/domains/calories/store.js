@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 // state
 const calories = ref([
@@ -11,15 +11,14 @@ const calories = ref([
 
 // getters
 export const getAllCalories = computed(() => calories.value);
-export const getCalorieById = (id) => computed(
-  () => calories.value.find(calorie => calorie.id === id)
-);
-export const getIndexOfCalorie = (id) => computed(
-  () => calories.value.findIndex((calorie) => calorie.id === id)
-);
+export const getCalorieById = (id) =>
+  computed(() => calories.value.find((calorie) => calorie.id === id));
+
+export const getIndexOfCalorie = (id) =>
+  computed(() => calories.value.findIndex((calorie) => calorie.id === id));
 
 // actions
 export const addCalorie = (calorie) => calories.value.push(calorie);
-export const updateCalorie = (index, calorieUpdated) => calories.value[index] = calorieUpdated;
+export const updateCalorie = (index, calorieUpdated) =>
+  (calories.value[index] = calorieUpdated);
 export const deleteCalorie = (index) => calories.value.splice(index, 1);
-      
